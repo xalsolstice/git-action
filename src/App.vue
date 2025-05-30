@@ -1,13 +1,7 @@
 <template>
-  <div>
-    我是git
-  </div>
+  <div>我是git</div>sss
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts"></script>
 
-</script>
-
-<style scoped>
-
-</style>
+<style scoped></style>
