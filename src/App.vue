@@ -1,5 +1,5 @@
 <template>
-  <div>我是git</div>
+  <div>我是git工作流</div>
 </template>
 
 <script setup lang="ts"></script>

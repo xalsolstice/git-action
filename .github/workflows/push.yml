@@ -36,4 +36,4 @@ jobs:
                   SOURCE: 'dist'
                   REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
                   REMOTE_USER: 'root'
-                  TARGET: '/www/wwwroot/vue'
+                  TARGET: '/www/wwwroot'
