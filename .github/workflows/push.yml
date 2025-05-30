@@ -37,3 +37,4 @@ jobs:
                   REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
                   REMOTE_USER: 'root'
                   TARGET: '/www/wwwroot'
+                  ARGS: "-avzr --delete --exclude=.user.ini"
