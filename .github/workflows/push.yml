@@ -1,40 +1,39 @@
 name: 打包应用并上传阿里云
 
 on:
-    push:
-        branches:
-            - master
+  push:
+    branches:
+      - master
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            # 获取源码
-            - name: 迁出代码
-              uses: actions/checkout@master
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # 获取源码
+      - name: 迁出代码
+        uses: actions/checkout@master
 
-            # 安装 Node.js 20.16.0
-            - name: 安装 node.js
-              uses: actions/setup-node@v1
-              with:
-                  node-version: 20.16.0
+      # 安装 Node.js 20.16.0
+      - name: 安装 node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 20.16.0
 
-            # 安装依赖
-            - name: 安装依赖
-              run: npm install
+      # 安装依赖
+      - name: 安装依赖
+        run: npm install
 
-            # 打包
-            - name: 打包
-              run: npm run build
+      # 打包
+      - name: 打包
+        run: npm run build
 
-            # 上传阿里云
-            - name: 发布到阿里云
-              uses: easingthemes/ssh-deploy@v2.1.1
-              env:
-                  SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-                  ARGS: '-avzr --delete'
-                  SOURCE: 'dist'
-                  REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-                  REMOTE_USER: 'root'
-                  TARGET: '/www/wwwroot'
-                  ARGS: "-avzr --delete --exclude=.user.ini"
+      # 上传阿里云
+      - name: 发布到阿里云
+        uses: easingthemes/ssh-deploy@v2.1.1
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          ARGS: "-avzr --delete --exclude=.user.ini"
+          SOURCE: 'dist'
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: 'root'
+          TARGET: '/www/wwwroot'
