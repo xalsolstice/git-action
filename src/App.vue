@@ -1,5 +1,5 @@
 <template>
-  <div>我修改了github的测试</div>
+  <div>测试是否还可以使用</div>
 </template>
 
 <script setup lang="ts"></script>
